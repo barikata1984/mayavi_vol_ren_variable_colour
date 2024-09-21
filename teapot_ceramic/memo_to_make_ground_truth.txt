@@ -1,0 +1,7 @@
+The original "groud_truth.csv" contained redundant points. To remove the points, performed the following procedures:
+1. Ran "split.py"
+2. Investigate the resultant .CSVs
+    2.1 Normalized all the coordinates
+    2.2 Flagged all the points whose mass is greater than zero and absolute differences with the adjacent (above or below to the point on the spreadsheet) points are also greater zero
+    2.3 Observed that points whose normalized z coordinates were either of {-0.47~, -0.46~, -0.44~} were redundant. Besides, for the fourth .CSV, the flagged point at -.42~ on the z axis appearred redandant
+3. Set the mass and mass density of those points at zero 4. Ran "join.py" then renamed "joined_ground_truth.csv" to "ground_truth.csv"
