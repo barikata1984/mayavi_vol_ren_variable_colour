@@ -1,0 +1,5 @@
+**/textures/
+**/_ground_truth_*
+**/ground_truth.csv
+**/original_ground_truth.csv
+
