@@ -1,0 +1,7 @@
+configobj
+numpy<2.0.0
+pandas
+mayavi
+moviepy
+pyqt5
+pyside2
