@@ -148,7 +148,7 @@ if __name__ == "__main__":
     zero_to_one_md = zero_to_one_md.reshape(meshgrid_shape)
     scalars[zero_to_one_md.nonzero()] = zero_to_one_md[zero_to_one_md.nonzero()]
 
-    print(f"Total mass: {_mass_distr[_mass_distr.nonzero()].sum()}")
+#    print(f"Total mass: {_mass_distr[_mass_distr.nonzero()].sum()}")
 
     _ctf, _otf = _get_custom_colormap(args.cmap,
                                       num_colors=256,
@@ -165,17 +165,17 @@ if __name__ == "__main__":
                                                    size=args.size
                                                    )
 
-    mlab.text(0.02, 0.05,  # location
-              f"object: {metadata_df.at[0, 'id']}",
-              figure=figure,
-              #line_width=.5,
-              ).property.font_family = "courier"
-
-    mlab.text(0.02, 0.01,  # location
-              f"aabb scale: {metadata_df.at[0, 'aabb_scale']} [m]",
-              figure=figure,
-              #line_width=.5,
-              ).property.font_family = "courier"
+#    mlab.text(0.02, 0.05,  # location
+#              f"object: {metadata_df.at[0, 'id']}",
+#              figure=figure,
+#              #line_width=.5,
+#              ).property.font_family = "courier"
+#
+#    mlab.text(0.02, 0.01,  # location
+#              f"aabb scale: {metadata_df.at[0, 'aabb_scale']} [m]",
+#              figure=figure,
+#              #line_width=.5,
+#              ).property.font_family = "courier"
 
     if args.axes:
         mlab.axes(figure=figure,
@@ -188,7 +188,7 @@ if __name__ == "__main__":
                   )
 
     if args.generate_video:
-        max_epochs = 120
+        max_epochs = 200
         num_mayavi_camera_turn = 2
         azimuth, _, _, _ = mlab.view()
         azimuth_tick = num_mayavi_camera_turn * 360.0 / max_epochs
@@ -206,4 +206,6 @@ if __name__ == "__main__":
 
         _generate_mass_distr_video(mass_distr_img_dir, "mass_distr", fps=args.fps)
     else:
+        azimuth = 2 * 360 / 200 * (200 - 1)
+        mlab.view(azimuth=azimuth, distance=5.0, elevation=45, figure=figure)
         mlab.show()

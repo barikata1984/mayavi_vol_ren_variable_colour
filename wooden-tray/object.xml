@@ -1,0 +1,22 @@
+<mujoco model="target">
+  <compiler meshdir="assets" texturedir="assets" autolimits="true"/>
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <texture type="2d" name="Woods &amp; Plastics.Finish Carpentry.Wood.Red Birch" file="Woods &amp; Plastics.Finish Carpentry.Wood.Red Birch.png"/>
+    <material name="255,255,255" texture="Woods &amp; Plastics.Finish Carpentry.Wood.Red Birch" specular="1.0" shininess="1.0"/>
+    <mesh file="object.obj"/>
+  </asset>
+  <worldbody>
+    <body name="object">
+      <geom material="255,255,255" mesh="object" class="visual"/>
+      <geom mesh="object" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>
